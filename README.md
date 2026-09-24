@@ -1,26 +1,61 @@
 # QR Studio
 
-QR Studio is a free, client-side QR code generator built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and the `qrcode` library. It creates URL, plain-text, WiFi, contact (vCard), and email QR codes. You can change colors, size, error correction, dot style, and quiet zone, or add a small logo. Download PNG/SVG files or copy a PNG image to the clipboard.
+A fast, privacy-friendly QR code generator built with Next.js and TypeScript.
 
-QR content, WiFi credentials, and logos are processed in the browser and are not sent to a QR API. There are no accounts, analytics, database, or backend QR endpoints. Only the light/dark theme preference is saved locally.
+Create customizable QR codes for URLs, text, WiFi networks, contacts, and email directly in your browser. No account required.
 
-## Run locally
+### 🌐 Live Demo
+
+**[qriyo.vercel.app](https://qriyo.vercel.app)**
+
+## Preview
+
+![QR Studio Preview](public/screenshots/qr-studio-preview.png)
+
+## Features
+
+- Generate QR codes for URLs, text, WiFi, contacts, and email
+- Customize foreground and background colors
+- Adjust QR code size and error correction level
+- Add a custom logo
+- Download QR codes as PNG or SVG
+- Copy QR codes directly to the clipboard
+- Light and dark themes
+- Responsive design for desktop, tablet, and mobile
+- No account required
+- Client-side processing for privacy
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- node-qrcode
+
+## Privacy
+
+QR Studio processes QR content and uploaded logos directly in your browser.
+
+No accounts, analytics, database, or external QR API are required. QR content and uploaded images are not sent to a server for QR generation.
+
+## Run Locally
+
+Clone the repository and install the dependencies:
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Then open:
 
-To run the production build locally:
-
-```bash
-npm run build
-npm run start
+```text
+http://localhost:3000
 ```
 
-## Checks
+## Testing
+
+The project includes automated tests and has been tested across multiple screen sizes and browsers.
 
 ```bash
 npm test
@@ -29,11 +64,16 @@ npx tsc --noEmit
 npm run build
 ```
 
-## Project structure
+## Project Structure
 
-- `src/app/` — page, metadata, styles, and icon
-- `src/components/qr-studio/` — interface and client-side workspace
-- `src/lib/qr-studio/` — payload encoding, QR rendering, and local logo processing
-- `tests/` — payload and rendering unit tests
+```text
+src/app/                    Application pages, metadata, and styles
+src/components/qr-studio/   QR Studio interface and components
+src/lib/qr-studio/          QR generation and payload logic
+tests/                      Unit tests
+public/screenshots/         Project screenshots
+```
 
-PNG and clipboard export require enough pixels per QR module; increase the size or use SVG for dense codes. Image clipboard copying requires browser support, a secure context, and permission. Very low-contrast or inverted colors may not scan reliably; the interface warns without changing your selection.
+## Author
+
+Built by **Joshua Ansiboy**.
